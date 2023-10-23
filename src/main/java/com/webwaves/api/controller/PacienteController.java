@@ -1,0 +1,17 @@
+package com.webwaves.api.controller;
+
+import com.webwaves.api.paciente.DadosCadastroPaciente;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("pacientes")
+public class PacienteController {
+
+    @PostMapping
+    public void cadastrarPaciente(@RequestBody DadosCadastroPaciente paciente){
+        System.out.println("Dados paciente: " + paciente);
+    }
+}
