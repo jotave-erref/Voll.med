@@ -1,9 +1,6 @@
 package com.webwaves.api.controller;
 
-import com.webwaves.api.medicos.DadosCadastroMedico;
-import com.webwaves.api.medicos.DadosListagemMedico;
-import com.webwaves.api.medicos.Medico;
-import com.webwaves.api.medicos.MedicoRepository;
+import com.webwaves.api.medicos.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +22,19 @@ public class MedicoController {
     }
     @GetMapping
     public Page<DadosListagemMedico> listagem(@PageableDefault(size = 10, page = 0, sort = {"nome"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemMedico::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizaMedico dados){
+        var medico = repository.getReferenceById(dados.id());
+        medico.atualizaCadastro(dados);
+    }
+    @DeleteMapping("{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id){
+        var medico = repository.getReferenceById(id);
+        medico.excluir();
     }
 }
