@@ -1,6 +1,6 @@
 package com.webwaves.api.controller;
 
-import com.webwaves.api.medicos.*;
+import com.webwaves.api.domain.medicos.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

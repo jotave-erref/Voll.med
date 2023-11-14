@@ -1,4 +1,4 @@
-package com.webwaves.api.medicos;
+package com.webwaves.api.domain.medicos;
 
 public enum EspecialidadeMedico {
 

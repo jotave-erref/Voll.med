@@ -1,52 +1,45 @@
-package com.webwaves.api.medicos;
+package com.webwaves.api.domain.paciente;
 
-import com.webwaves.api.endereco.DadosEndereco;
-import com.webwaves.api.endereco.Endereco;
+import com.webwaves.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "Medico")
-@Table(name = "medicos")
-@AllArgsConstructor
+@Entity(name = "Paciente")
+@Table(name = "pacientes")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
-public class Medico {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Paciente {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String nome;
     private String email;
-    private String crm;
     private String telefone;
-    @Enumerated(EnumType.STRING)
-    private EspecialidadeMedico especialidade;
+    private String cpf;
     @Embedded
     private Endereco endereco;
-    private boolean ativo;
+    private Boolean ativo;
 
-    public Medico(DadosCadastroMedico dados) {
+    public Paciente(DadosCadastroPaciente dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
-        this.crm = dados.crm();
         this.telefone = dados.telefone();
-        this.especialidade = dados.especialidade();
+        this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
     }
 
-    public void atualizaCadastro(DadosAtualizaMedico dados) {
+    public void atualizaCadastroPaciente(DadosAtualizaPaciente dados) {
         if(dados.nome() != null){
             this.nome = dados.nome();
         }
-
         if(dados.telefone() != null){
             this.telefone = dados.telefone();
         }
-
         if(dados.endereco() != null){
             this.endereco.atualizaCadastroEndereco(dados.endereco());
         }

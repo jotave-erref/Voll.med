@@ -1,6 +1,6 @@
-package com.webwaves.api.paciente;
+package com.webwaves.api.domain.paciente;
 
-import com.webwaves.api.endereco.Endereco;
+import com.webwaves.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoPaciente(Long id, String nome, String email, String telefone, String cpf, Endereco endereco) {
     public DadosDetalhamentoPaciente(Paciente paciente){

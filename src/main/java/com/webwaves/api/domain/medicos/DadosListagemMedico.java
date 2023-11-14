@@ -1,4 +1,4 @@
-package com.webwaves.api.medicos;
+package com.webwaves.api.domain.medicos;
 
 public record DadosListagemMedico(Long id, String nome, String email, String crm, EspecialidadeMedico especialidade) {
 

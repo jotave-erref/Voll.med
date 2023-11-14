@@ -1,6 +1,6 @@
-package com.webwaves.api.paciente;
+package com.webwaves.api.domain.paciente;
 
-import com.webwaves.api.endereco.DadosEndereco;
+import com.webwaves.api.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

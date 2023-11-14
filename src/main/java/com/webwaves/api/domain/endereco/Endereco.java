@@ -1,6 +1,5 @@
-package com.webwaves.api.endereco;
+package com.webwaves.api.domain.endereco;
 
-import com.webwaves.api.medicos.DadosAtualizaMedico;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

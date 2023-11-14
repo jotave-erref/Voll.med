@@ -1,6 +1,6 @@
-package com.webwaves.api.medicos;
+package com.webwaves.api.domain.medicos;
 
-import com.webwaves.api.endereco.DadosEndereco;
+import com.webwaves.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizaMedico(
