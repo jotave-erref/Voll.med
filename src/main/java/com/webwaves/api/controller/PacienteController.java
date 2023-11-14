@@ -1,7 +1,5 @@
 package com.webwaves.api.controller;
 
-import com.webwaves.api.medicos.DadosAtualizaMedico;
-import com.webwaves.api.medicos.DadosListagemMedico;
 import com.webwaves.api.paciente.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -28,11 +26,10 @@ public class PacienteController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemPaciente>> listagemPaciente(@PageableDefault(size = 10, page = 0, sort = {"nome"}) Pageable paginacao){
+    public ResponseEntity<Page<DadosListagemPaciente>> listagemPaciente(@PageableDefault(size = 10, page = 0, sort = {"nome"}) Pageable paginacao) {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
         return ResponseEntity.ok(page);
     }
-
     @PutMapping
     @Transactional
     public ResponseEntity atualiza(@RequestBody @Valid DadosAtualizaPaciente dados){
