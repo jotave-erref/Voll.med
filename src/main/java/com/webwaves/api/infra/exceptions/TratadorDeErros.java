@@ -1,4 +1,4 @@
-package com.webwaves.api.infra;
+package com.webwaves.api.infra.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.apache.coyote.Response;
