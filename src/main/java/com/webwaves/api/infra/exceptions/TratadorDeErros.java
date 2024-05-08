@@ -1,5 +1,6 @@
 package com.webwaves.api.infra.exceptions;
 
+import com.webwaves.api.domain.consulta.ValidacaoException;
 import jakarta.persistence.EntityNotFoundException;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,11 @@ public class TratadorDeErros {
     public ResponseEntity tratarErro400(MethodArgumentNotValidException ex){
         var errors = ex.getFieldErrors();
         return ResponseEntity.badRequest().body(errors.stream().map(DadosErroValidacao::new).toList());
+    }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratarErro400(ValidacaoException ex){
+        return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
     private record DadosErroValidacao(String campo, String mensagem){
