@@ -1,4 +1,6 @@
-package com.webwaves.api.domain.consulta;
+package com.webwaves.api.domain.consulta.agendamento;
+
+import com.webwaves.api.domain.consulta.Consulta;
 
 import java.time.LocalDateTime;
 

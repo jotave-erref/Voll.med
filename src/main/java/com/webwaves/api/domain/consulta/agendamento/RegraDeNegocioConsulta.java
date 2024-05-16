@@ -1,6 +1,9 @@
-package com.webwaves.api.domain.consulta;
+package com.webwaves.api.domain.consulta.agendamento;
 
-import com.webwaves.api.domain.consulta.validacoes.InterfaceValidacao;
+import com.webwaves.api.domain.consulta.Consulta;
+import com.webwaves.api.domain.consulta.ConsultaRepository;
+import com.webwaves.api.domain.consulta.ValidacaoException;
+import com.webwaves.api.domain.consulta.agendamento.validaAgendamento.InterfaceValidacao;
 import com.webwaves.api.domain.medicos.Medico;
 import com.webwaves.api.domain.medicos.MedicoRepository;
 import com.webwaves.api.domain.paciente.PacienteRepository;
@@ -23,10 +26,10 @@ public class RegraDeNegocioConsulta {
 
     public DadosDetalhamentoConsulta validaAgendamento(DadosAgendamentoConsulta dados){
         if(!pacienteRepository.existsById(dados.idPaciente())){
-            throw new ValidacaoException("Id do paciente não informado ou inválido");
+            throw new ValidacaoException("Id do paciente inválido");
         }
         if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
-            throw new ValidacaoException("Id do médico inválido");
+            throw new ValidacaoException("Id do médico não informado ou inválido");
         }
 
         validacoes.forEach(v -> v.validar(dados));

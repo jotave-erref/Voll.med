@@ -1,5 +1,6 @@
 package com.webwaves.api.domain.consulta;
 
+import com.webwaves.api.domain.consulta.cancelamento.MotivoCancelamento;
 import com.webwaves.api.domain.medicos.EspecialidadeMedico;
 import com.webwaves.api.domain.medicos.Medico;
 import com.webwaves.api.domain.paciente.Paciente;
@@ -19,17 +20,24 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
-public class Consulta {
+public class    Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_id")
     private Medico medico;
+
     private LocalDateTime data;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "motivo_cancelamento")
+    private MotivoCancelamento motivoCancelamento;
 
     public Consulta(Paciente paciente, Medico medico, LocalDateTime data){
         this.paciente = paciente;
@@ -37,4 +45,8 @@ public class Consulta {
         this.data = data;
     }
 
+    public void cancelar(MotivoCancelamento motivo){
+        this.motivoCancelamento = motivo;
+
+    }
 }

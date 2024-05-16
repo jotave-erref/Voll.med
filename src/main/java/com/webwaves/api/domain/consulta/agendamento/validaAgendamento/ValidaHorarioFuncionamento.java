@@ -1,6 +1,6 @@
-package com.webwaves.api.domain.consulta.validacoes;
+package com.webwaves.api.domain.consulta.agendamento.validaAgendamento;
 
-import com.webwaves.api.domain.consulta.DadosAgendamentoConsulta;
+import com.webwaves.api.domain.consulta.agendamento.DadosAgendamentoConsulta;
 import com.webwaves.api.domain.consulta.ValidacaoException;
 import org.springframework.stereotype.Component;
 

@@ -1,15 +1,14 @@
-package com.webwaves.api.domain.consulta.validacoes;
+package com.webwaves.api.domain.consulta.agendamento.validaAgendamento;
 
-import com.webwaves.api.domain.consulta.DadosAgendamentoConsulta;
+import com.webwaves.api.domain.consulta.agendamento.DadosAgendamentoConsulta;
 import com.webwaves.api.domain.consulta.ValidacaoException;
 import org.springframework.stereotype.Component;
 
-import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Component
-public class ValidaAntecedenciaMinima implements InterfaceValidacao{
+public class ValidaAntecedenciaMinima implements InterfaceValidacao {
     @Override
     public void validar(DadosAgendamentoConsulta dados) {
         var horarioConsulta = dados.data();
