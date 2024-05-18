@@ -1,5 +1,7 @@
 # Bem vindo ao VollMed 
 
+### :construction: Projeto em construção :construction:
+ 
 ## :computer: Sobre o projeto
 VollMed é uma clínica de médica ficticia que necessita de um aplicativo para gestão de consultas. <br>
 O aplicativo conta com funcionalidades de cadastro de médicos e pacientes e futuramente o agendamento de consultas. <br>
@@ -21,3 +23,8 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 5. Hibernate
 6. Flyway
 7. Lombok
+8. Swagger <link> http://localhost:8080/swagger-ui/index.html#/ </link>
+
+
+
+
