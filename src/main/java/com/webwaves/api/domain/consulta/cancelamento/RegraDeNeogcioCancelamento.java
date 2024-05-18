@@ -23,8 +23,7 @@ public class RegraDeNeogcioCancelamento {
 
         validaCancelamentoList.forEach(c -> c.validar(dados));
         var consultaCancelada = repository.getReferenceById(dados.consultaId());
-        var motivo = MotivoCancelamento.fromString(dados.motivo());
-        consultaCancelada.cancelar(motivo);
+        consultaCancelada.cancelar(dados.motivo());
 
     }
 }
