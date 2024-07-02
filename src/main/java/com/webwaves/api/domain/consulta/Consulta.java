@@ -17,6 +17,7 @@ import java.util.Date;
 
 @Entity(name = "Consulta")
 @Table(name = "consultas")
+
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
