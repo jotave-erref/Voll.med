@@ -2,14 +2,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage } from "../pages/LoginPage";
 import { DashboardPage } from "../pages/DashboardPage";
+import { PrivateLayout } from "./PrivateLayout";
 
 export const router = createBrowserRouter([
+  // rota pública
   {
     path: "/login",
     element: <LoginPage />,
   },
+  //rotas privadas
   {
-    path: "/", // A rota raiz da nossa aplicação
-    element: <DashboardPage />,
+    element: <PrivateLayout />,
+    children: [
+      {
+        path: "/",
+        element: <DashboardPage />  
+      }
+    ],
+
   },
 ]);
